@@ -1,6 +1,6 @@
 class RecipeApp {
     constructor() {
-        this.apiUrl = window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://recipe-app-xyz.onrender.com/api';
+        this.apiUrl = window.location.hostname === 'localhost' ? 'http://localhost:5000/api' : 'https://recipe-app-09s1.onrender.com/api';
         this.currentPage = 1;
         this.pageSize = 15;
         this.totalPages = 1;
