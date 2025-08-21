@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: recipe-api
+    env: python
+    buildCommand: "pip install -r backend/requirements.txt && python backend/data_processor.py"
+    startCommand: "cd backend && gunicorn app:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16

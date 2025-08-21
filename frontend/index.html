@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recipe Collection</h1>
+        </header>
+
+        <div class="controls">
+            <div class="search-filters">
+                <input type="text" id="titleFilter" placeholder="Search by title...">
+                <select id="cuisineFilter">
+                    <option value="">All Cuisines</option>
+                </select>
+                <input type="text" id="ratingFilter" placeholder="Rating (e.g., >=4.5)">
+                <input type="text" id="timeFilter" placeholder="Total Time (e.g., <=60)">
+                <input type="text" id="caloriesFilter" placeholder="Calories (e.g., <=400)">
+                <button id="searchBtn">Search</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+            
+            <div class="pagination-controls">
+                <label for="pageSize">Results per page:</label>
+                <select id="pageSize">
+                    <option value="15">15</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="recipesTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Cuisine</th>
+                        <th>Rating</th>
+                        <th>Total Time</th>
+                        <th>Serves</th>
+                    </tr>
+                </thead>
+                <tbody id="recipesBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button id="prevBtn" disabled>Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextBtn" disabled>Next</button>
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No recipes found</h3>
+            <p>Try adjusting your search criteria</p>
+        </div>
+
+        <div class="no-data" id="noData" style="display: none;">
+            <i class="fas fa-utensils"></i>
+            <h3>No data available</h3>
+            <p>Please check if the server is running</p>
+        </div>
+    </div>
+
+    <!-- Recipe Detail Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay">
+        <div class="drawer" id="recipeDrawer">
+            <div class="drawer-header">
+                <h2 id="drawerTitle"></h2>
+                <button class="close-btn" id="closeDrawer">&times;</button>
+            </div>
+            <div class="drawer-content">
+                <div class="recipe-info">
+                    <div class="info-item">
+                        <strong>Description:</strong>
+                        <p id="recipeDescription"></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Total Time:</strong>
+                        <div class="time-info">
+                            <span id="recipeTotalTime"></span>
+                            <button class="expand-btn" id="expandTime">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="time-details" id="timeDetails" style="display: none;">
+                            <p><strong>Prep Time:</strong> <span id="recipePrepTime"></span></p>
+                            <p><strong>Cook Time:</strong> <span id="recipeCookTime"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="nutrition-section">
+                    <h3>Nutrition Information</h3>
+                    <table class="nutrition-table">
+                        <tbody id="nutritionBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
